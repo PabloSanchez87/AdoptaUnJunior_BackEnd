@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Camino de Aprendizaje</title>
+</head>
+<body>
+    <h1>Mi Camino de Aprendizaje en Backend</h1>
+    <ul>
+        {% for step in steps %}
+            <li>{{ step.title }}: {{ step.description }} - 
+                {% if step.completed %} Completado {% else %} En progreso {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
