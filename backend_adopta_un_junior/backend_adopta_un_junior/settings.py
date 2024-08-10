@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #apps
+    'motivation_app',
+    'learning_path_app',
+    'goals_app',
 ]
 
 MIDDLEWARE = [
