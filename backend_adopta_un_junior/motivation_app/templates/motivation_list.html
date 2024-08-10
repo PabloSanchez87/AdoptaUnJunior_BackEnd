@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Motivaciones</title>
+</head>
+<body>
+    <h1>Mis Motivaciones para el Backend</h1>
+    <ul>
+        {% for motivation in motivations %}
+            <li><strong>{{ motivation.reason }}:</strong> {{ motivation.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
