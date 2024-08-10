@@ -31,4 +31,28 @@ python manage.py migrate
 
 ```sh 
 python manage.py createsuperuser # (opcional)
+# user: Admin
+# pass: adoptaunjunior
 ```
+
+```sh
+# Creo un script para poder lista fácilmente las urls del proyecto.
+python list_urls.py
+#Salida
+admin/
+admin/login/
+admin/logout/
+admin/password_change/
+admin/password_change/done/
+admin/autocomplete/
+admin/jsi18n/
+admin/auth/group/
+admin/auth/group/add/
+admin/auth/user/
+admin/auth/user/add/
+motivations/
+learning_path/
+goals/
+tasks/
+```
+
