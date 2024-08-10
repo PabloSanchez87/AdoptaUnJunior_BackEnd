@@ -23,3 +23,12 @@ python manage.py startapp motivation_app
 python manage.py startapp learning_path_app
 python manage.py startapp goals_app
 ```
+
+```sh
+python manage.py makemigrations  
+python manage.py migrate 
+```
+
+```sh 
+python manage.py createsuperuser # (opcional)
+```
