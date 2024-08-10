@@ -56,3 +56,6 @@ goals/
 tasks/
 ```
 
+```sh
+python manage.py startapp home_app
+```

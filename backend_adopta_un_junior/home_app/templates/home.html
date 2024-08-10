@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - List of URLs</title>
+</head>
+<body>
+    <h1>Lista momentánea de URLs Disponibles</h1>
+    <ul>
+        {% for url in urls %}
+            <li><a href="{{ url }}">{{ url }}</a></li>
+        {% endfor %}
+    </ul>    
+</body>
+</html>
+
+

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'motivation_app',
     'learning_path_app',
     'goals_app',
+    'home_app',
 ]
 
 MIDDLEWARE = [
