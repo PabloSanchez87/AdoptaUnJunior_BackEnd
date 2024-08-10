@@ -17,10 +17,19 @@ def list_urls(lis, acc=None, base=''):
 
     return acc
 
+# def home_view(request):
+#     """
+#     Vista para la página de inicio que lista todas las URLs y las muestra en una plantilla HTML.
+#     """
+#     urlpatterns = django.urls.get_resolver().url_patterns
+#     urls = list_urls(urlpatterns)
+#     return render(request, 'home.html', {'urls': urls})
+from django.template import engines
+
 def home_view(request):
-    """
-    Vista para la página de inicio que lista todas las URLs y las muestra en una plantilla HTML.
-    """
+    template_engine = engines['django'].engine
+    print(template_engine.dirs)  # Imprime las rutas donde Django busca las plantillas
     urlpatterns = django.urls.get_resolver().url_patterns
     urls = list_urls(urlpatterns)
     return render(request, 'home.html', {'urls': urls})
+

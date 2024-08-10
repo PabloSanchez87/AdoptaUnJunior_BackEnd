@@ -12,5 +12,12 @@
             <li>{{ task.title }} - {{ task.get_status_display }}</li>
         {% endfor %}
     </ul>
+
+    <!-- Enlace para volver a la página de inicio -->
+    <p><a href="{% url 'home' %}">Volver a la página de inicio</a></p>
+
+    <!-- Incluir el footer -->
+    {% include '_footer_principal.html' %}
+
 </body>
 </html>

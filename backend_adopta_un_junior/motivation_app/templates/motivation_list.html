@@ -12,6 +12,12 @@
             <li><strong>{{ motivation.reason }}:</strong> {{ motivation.description }}</li>
         {% endfor %}
     </ul>
+
+    <!-- Enlace para volver a la página de inicio -->
+    <p><a href="{% url 'home' %}">Volver a la página de inicio</a></p>
+
+    <!-- Incluir el footer -->
+    {% include '_footer_principal.html' %}
 </body>
 </html>
 
