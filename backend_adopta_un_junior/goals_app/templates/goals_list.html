@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Objetivos en Backend</title>
+</head>
+<body>
+    <h1>Mis Objetivos</h1>
+    <ul>
+        {% for goal in goals %}
+            <li><strong>{{ goal.term }}:</strong> {{ goal.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Tareas</title>
+</head>
+<body>
+    <h1>Mis Tareas Relacionadas con los Objetivos</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - {{ task.get_status_display }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
