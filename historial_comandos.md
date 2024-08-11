@@ -59,3 +59,74 @@ tasks/
 ```sh
 python manage.py startapp home_app
 ```
+
+```python
+# imports
+from motivation_app.models import Motivation
+from learning_path_app.models import LearningStep
+from goals_app.models import Goal, Task
+```
+
+```sh
+# Introducimos datos de motivación.
+Motivation.objects.create(
+    reason="Amor por la Tecnología",
+    description="Me apasiona aprender y trabajar con nuevas tecnologías."
+)
+
+Motivation.objects.create(
+    reason="Resolución de Problemas",
+    description="Disfruto encontrando soluciones eficientes a problemas complejos."
+)
+
+Motivation.objects.create(
+    reason="Trabajo en Equipo",
+    description="Creo que el trabajo en equipo es clave para el éxito en cualquier proyecto."
+)
+```
+
+```python
+# Introduccion de datos Learning_path
+LearningStep.objects.create(
+    title="Fundamentos de Python",
+    description="Dominar los conceptos básicos de Python."
+)
+
+LearningStep.objects.create(
+    title="Bases de Datos",
+    description="Aprender a diseñar y gestionar bases de datos relacionales."
+)
+
+LearningStep.objects.create(
+    title="APIs con Django",
+    description="Crear y consumir APIs utilizando Django y Django REST Framework."
+)
+```
+
+```python
+# Introduccion Goal y Task
+goal = Goal.objects.create(
+    term="Desplegar una Aplicación Django",
+    description="Configurar y desplegar una aplicación Django en un servidor."
+)
+
+Task.objects.create(
+    goal=goal,
+    title="Configurar el servidor",
+    status="Pending"  # Opcional, ya que "Pending" es el valor predeterminado
+)
+
+Task.objects.create(
+    goal=goal,
+    title="Deploy con Git",
+    status="Pending"  # Opcional
+)
+```
+
+```python
+# Verificamos datos
+Motivation.objects.all()
+LearningStep.objects.all()
+Goal.objects.all()
+Task.objects.all()
+```
