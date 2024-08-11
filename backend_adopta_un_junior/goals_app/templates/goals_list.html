@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Objetivos en Backend</title>
+    <title>Mis Objetivos</title>
 </head>
 <body>
-    <h1>Mis Objetivos</h1>
+    <h1>Mis Objetivos en Backend</h1>
     <ul>
         {% for goal in goals %}
-            <li><strong>{{ goal.term }}:</strong> {{ goal.description }}</li>
+            <li>
+                <h2>{{ goal.term }}: {{ goal.description }}</h2>
+                <ul>
+                    {% for task in goal.task_set.all %}
+                        <li>
+                            <strong>{{ task.title }}</strong> - {{ task.get_status_display }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
         {% endfor %}
     </ul>
 
-    <!-- Enlace para volver a la página de inicio -->
-    <p><a href="{% url 'home' %}">Volver a la página de inicio</a></p>
-
     <!-- Incluir el footer -->
-    {% include '_footer_principal.html' %}  
-
+    {% include '_footer_principal.html' %}
 </body>
 </html>

@@ -9,7 +9,10 @@
     <h1>Mis Motivaciones para el Backend</h1>
     <ul>
         {% for motivation in motivations %}
-            <li><strong>{{ motivation.reason }}:</strong> {{ motivation.description }}</li>
+            <li>
+                <h2><strong>{{ motivation.reason }}:</strong></h2>
+                <p> {{ motivation.description }} </p>
+            </li>
         {% endfor %}
     </ul>
 
