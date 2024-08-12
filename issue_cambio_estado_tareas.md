@@ -44,9 +44,18 @@ Actualmente, la vista de la aplicación `goals_app` muestra las tareas pero no p
 Aquí tienes un ejemplo básico de cómo podría implementarse la lógica de cambio de estado:
 
 ```python
-from django.shortcuts import redirect, get_object_or_404
+# backend_adopta_un_junior/goals_app/views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Goal, Task
 from django.http import HttpResponse
-from goals_app.models import Task
+
+def goals_list(request):
+    goals = Goal.objects.all()
+    return render(request, 'goals_list.html', {'goals': goals})
+
+def tasks_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks_list.html', {'tasks': tasks})
 
 def change_task_status(request, task_id):
     task = get_object_or_404(Task, id=task_id)
@@ -54,19 +63,61 @@ def change_task_status(request, task_id):
         new_status = request.POST.get('status')
         task.status = new_status
         task.save()
-        return redirect('goals_list')  # Redirige a la lista de tareas
+        return redirect('tasks_list')  # Redirige a la lista de tareas después de actualizar el estado
     return HttpResponse(status=405)  # Método no permitido
 ```
 
 ```html
-<!-- En la plantilla goals_list.html -->
-<form method="post" action="{% url 'change_task_status' task.id %}">
-    {% csrf_token %}
-    <select name="status" onchange="this.form.submit()">
-        <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pendiente</option>
-        <option value="In Progress" {% if task.status == 'In Progress' %}selected{% endif %}>En progreso</option>
-        <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completado</option>
-    </select>
-</form>
+<!-- backend_adopta_un_junior/goals_app/templates/goals_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Objetivos en Backend</title>
+</head>
+<body>
+    <h1>Mis Objetivos en Backend</h1>
+    <ul>
+        {% for goal in goals %}
+            <li>
+                <h2>{{ goal.term }}: {{ goal.description }}</h2>
+                <ul>
+                    {% for task in goal.task_set.all %}
+                        <li>
+                            <strong>{{ task.title }}</strong> - 
+                            <form method="post" action="{% url 'change_task_status' task.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <select name="status" onchange="this.form.submit()">
+                                    <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pendiente</option>
+                                    <option value="In Progress" {% if task.status == 'In Progress' %}selected{% endif %}>En progreso</option>
+                                    <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completado</option>
+                                </select>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Incluir el footer -->
+    {% include '_footer_principal.html' %}
+</body>
+</html>
+```
+
+```python
+# backend_adopta_un_junior/goals_app/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('goals/', views.goals_list, name='goals_list'),
+    path('tasks/', views.tasks_list, name='tasks_list'),
+    path('change-task-status/<int:task_id>/', 
+            views.change_task_status, 
+            name='change_task_status'),
+]
 ```
 
