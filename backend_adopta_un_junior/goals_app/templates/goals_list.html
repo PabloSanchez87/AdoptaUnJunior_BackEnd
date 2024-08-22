@@ -14,7 +14,15 @@
                 <ul>
                     {% for task in goal.task_set.all %}
                         <li>
-                            <strong>{{ task.title }}</strong> - {{ task.get_status_display }}
+                            <strong>{{ task.title }}</strong> -
+                            <form method="post" action="{% url 'change_task_status' task.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <select name="status" onchange="this.form.submit()">
+                                    <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pendiente</option>
+                                    <option value="In Progress" {% if task.status == 'In Progress' %}selected{% endif %}>En progreso</option>
+                                    <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completado</option>
+                                </select>
+                            </form>
                         </li>
                     {% endfor %}
                 </ul>
