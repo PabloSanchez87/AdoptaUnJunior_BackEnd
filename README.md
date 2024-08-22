@@ -225,7 +225,7 @@ Una vez aceptado el PR, para actualizar nuestra rama local con los nuevos cambio
 git fetch origin 
 ```
 
-- *Opción 1. Hacer un merge de los cambios remotos*
+- *Hacer un merge de los cambios remotos*
 ```sh
 # Fusionar los cambios de la rama main (o cualquier otra rama) con tu rama actual.
 # Esto descargará los cambios del remoto, pero no los aplicará en tu rama local todavía:
