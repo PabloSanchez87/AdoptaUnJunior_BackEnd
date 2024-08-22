@@ -130,3 +130,52 @@ LearningStep.objects.all()
 Goal.objects.all()
 Task.objects.all()
 ```
+
+# Crear una Issue y resolverla
+
+Después de que el colaborador Felix Serrano haya realizado las tareas de la issue.
+Realizado el merge
+Realizamos un pull de los cambios a nuestro repositorio local:
+
+```sh
+#Esto descargará los cambios del remoto, pero no los aplicará en tu rama local todavía
+git fetch origin 
+
+git pull origin main
+```
+# 
+Si el colaborador no hubiera hecho el merge de las ramas, lo pasos a seguir serían los siguientes.
+````sh
+
+# Opción 1. Hacer un merge de los cambios remotos:
+# Ahora, puedes fusionar los cambios de la rama main (o cualquier otra rama) con tu rama actual.
+# Esto descargará los cambios del remoto, pero no los aplicará en tu rama local todavía:
+git fetch origin
+git merge origin/main
+# Si hay conflictos, Git te lo notificará y te permitirá resolverlos antes de continuar. 
+# Una vez que hayas resuelto los conflictos, puedes confirmar los cambios y enviarlos a tu rama remota:
+git add .
+git commit -m "Merge changes from main branch"
+git push origin main
+
+# Opción 2. Hacer un rebase de los cambios remotos:
+# Esto te permitirá aplicar los cambios de la rama main (o cualquier otra rama) sobre tu rama actual, sin crear un merge commit:
+git fetch origin
+git rebase origin/main
+# Si hay conflictos, Git te lo notificará y te permitirá resolverlos antes de continuar.
+# Una vez que hayas resuelto los conflictos, puedes confirmar los cambios y enviarlos a tu rama remota:
+git add .
+git commit -m "Rebase changes from main branch"
+git push origin main
+
+# Opción 3. Hacer un pull request para fusionar los cambios remotos:
+# Si no tienes permisos para fusionar directamente en la rama principal, 
+# puedes enviar una solicitud de extracción (pull request) al dueño del proyecto. 
+# El dueño del proyecto luego puede fusionar los cambios en su rama principal.
+# Esto te permitirá mantenerte actualizado con los cambios de la rama principal y colaborar con el equipo.
+# Para crear un pull request:
+# - Ingresa a GitHub o GitLab en tu navegador.
+# - Navega hasta el repositorio donde deseas enviar el pull request.
+# - Haz clic en la pestaña "Pull requests".
+```
+
