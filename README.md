@@ -218,7 +218,7 @@ En esta sección, se detalla cómo se manejó la colaboración en el proyecto.
 - El colaborador envió una Pull Request con los cambios. El código fue revisado y finalmente se aceptó la PR.
 
 
-## Pasos a seguir para actualizar nuestra rama local con los nuevos cambios:
+## Pasos a seguir para actualizar nuestra rama local con los nuevos cambios
 Una vez aceptado el PR, para actualizar nuestra rama local con los nuevos cambios, podemos usar los siguientes comandos:
 ```sh
 #Esto descargará los cambios del remoto, pero no los aplicará en tu rama local todavía
@@ -263,6 +263,7 @@ git push origin main
     No solo busco mejorar en el aspecto técnico, sino también en mi desarrollo como profesional integral. Estoy comprometido con mi crecimiento tanto en habilidades blandas como en técnicas. Esto incluye mejorar en la gestión del tiempo, la empatía, y la capacidad de recibir y dar feedback de manera constructiva. Creo que este equilibrio me permite contribuir de manera significativa a cualquier equipo en el que forme parte.
 
 - **Proactividad y Toma de Iniciativa**
+
     Ser proactivo y tomar la iniciativa son características que me ayudan a aportar un valor añadido al equipo, identificando áreas de mejora y proponiendo soluciones antes de que se conviertan en problemas.
 
 Por todas estas razones, considero que soy un candidato ideal para formar parte de los grupos de trabajo de Backend. Mi capacidad para trabajar bien con otros, adaptarme a nuevas situaciones y mantener una comunicación abierta y efectiva complementa mis habilidades técnicas, haciendo de mí un miembro valioso para cualquier equipo.
